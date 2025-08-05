@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Homepage</title>
   <link href="output.css" rel="stylesheet" />
-  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body, html {
@@ -22,7 +22,7 @@
       z-index: -10;
       top: 0;
       left: 0;
-      background: #1a1a1a; /* Dark gray for contrast */
+      background: #1a1a1a;
     }
     #particles-js canvas {
       display: block;
@@ -73,7 +73,7 @@
     }
     .hero p {
       font-size: 1.5rem;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .hero .btn {
       background: linear-gradient(45deg, #00aaff, #00ff88);
@@ -91,6 +91,17 @@
       transform: scale(1.05);
       box-shadow: 0 6px 20px rgba(0, 170, 255, 0.6);
     }
+    .hero .project-text {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .hero .project-text.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .footer {
       position: relative;
       z-index: 5;
@@ -107,6 +118,9 @@
       .hero p {
         font-size: 1.2rem;
       }
+      .hero .project-text {
+        font-size: 1.1rem;
+      }
       .navbar a {
         font-size: 1rem;
         margin: 0 10px;
@@ -121,6 +135,8 @@
 </head>
 <body>
   <div id="particles-js"></div>
+
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
       <a href="#">MySite</a>
@@ -132,57 +148,54 @@
       <a href="#">Contact</a>
     </div>
   </nav>
+
+  <!-- Hero Section with Animated Project Button -->
   <section class="hero">
-<h1>Welcome to My GitHub Portfolio</h1>
-<p>Explore my coding journey, personal projects, and hands-on experience with real-world tech solutions.</p>
-
-
-    <a href="#" class="btn">Get Started</a>
+    <h1>Welcome to My GitHub Portfolio</h1>
+    <p>Explore my coding journey, personal projects, and hands-on experience with real-world tech solutions.</p>
+    <div id="project-slider" class="mt-8">
+      <p id="project-text" class="project-text">Check out my most interesting project:</p>
+      <a
+        id="project-button"
+        href="https://github.com/NafisaJashim821/ZenithZone"
+        target="_blank"
+        class="btn transition-transform duration-500 ease-in-out scale-100 inline-block"
+      >
+        🛒 ZenithZone
+      </a>
+    </div>
   </section>
-  <footer class="footer">
- <p>&copy; 2025 Nafisa Jashim | Built with 💻 Passion & Purpose | <a href="https://github.com/NafisaJashim821?tab=repositories" target="_blank" style="color:#00ff88; text-decoration: none;">GitHub</a></p>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Nafisa Jashim | Built with 💻 Passion & Purpose |
+      <a href="https://github.com/NafisaJashim821?tab=repositories" target="_blank" style="color:#00ff88; text-decoration: none;">GitHub</a>
+    </p>
   </footer>
+
+  <!-- Particle JS -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
       "particles": {
         "number": {
           "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
+          "density": { "enable": true, "value_area": 800 }
         },
-        "color": {
-          "value": "#ffffff"
-        },
+        "color": { "value": "#ffffff" },
         "shape": {
           "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
+          "stroke": { "width": 0, "color": "#000000" }
         },
         "opacity": {
           "value": 0.5,
           "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
+          "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false }
         },
         "size": {
           "value": 3,
           "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
+          "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
         },
         "line_linked": {
           "enable": true,
@@ -199,54 +212,63 @@
           "straight": false,
           "out_mode": "out",
           "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
+          "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
         }
       },
       "interactivity": {
         "detect_on": "canvas",
         "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
           "resize": true
         },
         "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
+          "grab": { "distance": 400, "line_linked": { "opacity": 1 } },
+          "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+          "repulse": { "distance": 200, "duration": 0.4 },
+          "push": { "particles_nb": 4 },
+          "remove": { "particles_nb": 2 }
         }
       },
       "retina_detect": true
     });
+  </script>
+
+  <!-- Project Button Animation -->
+  <script>
+    const projects = [
+      {
+        name: "🛒 ZenithZone",
+        link: "https://github.com/NafisaJashim821/ZenithZone"
+      },
+      {
+        name: "🏥 MediPredict",
+        link: "https://github.com/NafisaJashim821/MediPredict"
+      }
+    ];
+
+    let index = 0;
+    const button = document.getElementById("project-button");
+    const projectText = document.getElementById("project-text");
+
+    setInterval(() => {
+      index = (index + 1) % projects.length;
+
+      // Update text and button with animation
+      projectText.classList.remove("active");
+      button.classList.remove("scale-100");
+      button.classList.add("scale-110");
+
+      setTimeout(() => {
+        projectText.textContent = `Check out my most interesting project: ${projects[index].name}`;
+        button.textContent = projects[index].name;
+        button.href = projects[index].link;
+
+        projectText.classList.add("active");
+        button.classList.remove("scale-110");
+        button.classList.add("scale-100");
+      }, 300);
+    }, 3000);
   </script>
 </body>
 </html>
