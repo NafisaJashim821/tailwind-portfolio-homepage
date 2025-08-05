@@ -94,13 +94,13 @@
     .hero .project-text {
       font-size: 1.3rem;
       margin-bottom: 15px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .hero .project-text.active {
       opacity: 1;
       transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .hero .project-text.fade {
+      opacity: 0;
+      transform: translateY(20px);
     }
     .footer {
       position: relative;
@@ -154,7 +154,7 @@
     <h1>Welcome to My GitHub Portfolio</h1>
     <p>Explore my coding journey, personal projects, and hands-on experience with real-world tech solutions.</p>
     <div id="project-slider" class="mt-8">
-      <p id="project-text" class="project-text">Check out my most interesting project:</p>
+      <p id="project-text" class="project-text">Check out my most interesting project: 🛒 ZenithZone</p>
       <a
         id="project-button"
         href="https://github.com/NafisaJashim821/ZenithZone"
@@ -251,23 +251,29 @@
     const button = document.getElementById("project-button");
     const projectText = document.getElementById("project-text");
 
+    // Initialize immediately
+    projectText.textContent = `Check out my most interesting project: ${projects[index].name}`;
+    projectText.classList.add("project-text");
+
     setInterval(() => {
       index = (index + 1) % projects.length;
 
-      // Update text and button with animation
-      projectText.classList.remove("active");
+      // Apply fade effect
+      projectText.classList.add("fade");
       button.classList.remove("scale-100");
       button.classList.add("scale-110");
 
       setTimeout(() => {
+        // Update text and button
         projectText.textContent = `Check out my most interesting project: ${projects[index].name}`;
         button.textContent = projects[index].name;
         button.href = projects[index].link;
 
-        projectText.classList.add("active");
+        // Remove fade and reset button scale
+        projectText.classList.remove("fade");
         button.classList.remove("scale-110");
         button.classList.add("scale-100");
-      }, 300);
+      }, 500); // Match transition duration for smooth effect
     }, 3000);
   </script>
 </body>
